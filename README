@@ -1,55 +1,35 @@
-autotest
+NAME
+    autotest - test more
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+USAGE
+    autotest [-f ] [FILE...]
 
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it to get an idea of the module's uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+OPTIONS
+      -f,   --file  file/dir to watch
 
+EVENTS
+      '1'          => 'IN_ACCESS',       # file was accessed
+      '2'          => 'IN_MODIFY',       # file was modified
+      '4'          => 'IN_ATTRIB',       # metadata has changed
+      '8'          => 'IN_CLOSE_WRITE',  # writeable file was closed
+      '16'         => 'IN_CLOSE_NOWRITE',# unwriteable file was closed
+      '32'         => 'IN_OPEN',         # file was opened
+      '64'         => 'IN_MOVED_FROM',   # file was moved from X
+      '128'        => 'IN_MOVED_TO',     # file was moved to Y
+      '256'        => 'IN_CREATE',       # subfile was created
+      '512'        => 'IN_DELETE',       # subfile was deleted
+      '1024'       => 'IN_DELETE_SELF',  # self/dir was deleted
+      '2048'       => 'IN_MOVE_SELF',    # self was moved
+      '8192'       => 'IN_UNMOUNT',      # fs was unmounted
+      '16384'      => 'IN_O_OVERFLOW',   # Even queued overflowed
+      '32768'      => 'IN_IGNORED',      # file was ignored
+      '1073741824' => 'IN_ISDIR',        # event occurred against dir
 
-INSTALLATION
+OPTIONS
+AUTHOR
+    Written by Magnus Woldrich
 
-To install this module, run the following commands:
+REPORTING BUGS
+    Report bugs to trapd00r@trapd00r.se
 
-	perl Makefile.PL
-	make
-	make test
-	make install
-
-SUPPORT AND DOCUMENTATION
-
-After installing, you can find documentation for this module with the
-perldoc command.
-
-    perldoc autotest
-
-You can also look for information at:
-
-    RT, CPAN's request tracker
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=autotest
-
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/autotest
-
-    CPAN Ratings
-        http://cpanratings.perl.org/d/autotest
-
-    Search CPAN
-        http://search.cpan.org/dist/autotest/
-
-
-LICENSE AND COPYRIGHT
-
-Copyright (C) 2010 Magnus Woldrich
-
-This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.
-
-See http://dev.perl.org/licenses/ for more information.
-
+COPYRIGHT
