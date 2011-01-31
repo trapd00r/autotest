@@ -8,7 +8,7 @@ use Getopt::Long;
 use Linux::Inotify2;
 use Pod::Usage;
 use Data::Dumper;
-use Term::ExtendedColor;
+use Term::ExtendedColor qw(fg bg);
 
 $Data::Dumper::Terse     = 1;
 $Data::Dumper::Indent    = 1;
@@ -56,9 +56,10 @@ sub watch {
       open(OLD_STDOUT, '>&', *STDOUT) or die($!);
       close(STDOUT);
 
-      if(system('make') == 0) {
+      #if(make()) {
+      if(system('/usr/bin/make') == 0) {
 
-        open(my $test, '-|', 'make test') or die($!);
+        open(my $test, '-|', '/usr/bin/make test') or die($!);
         my $test_output = join('', <$test>);
 
         open(STDOUT, '>&', *OLD_STDOUT) or die($!);
@@ -158,6 +159,7 @@ sub format_output {
     );
   }
 }
+
 
 =pod
 
